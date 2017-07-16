@@ -3,26 +3,79 @@
   <head>
     <meta charset="utf-8">
     <title>Device Orientation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
       body {
         padding: 0;
         margin: 0;
+        font-family: sans-serif;
+        font-size: calc(10px + 1vw);
       }
       .debug {
         position: absolute;
         top: 0;
         color: white;
-        font-size: 40px;
         padding: 20px;
+        text-shadow: 0 0 50px black, 0 0 50px black, 0 0 50px black, 0 0 50px black, 0 0 50px black, 0 0 50px black;
+      }
+      td {
+        padding: 0 10px;
       }
     </style>
   </head>
 
   <body>
     <div class="debug">
-      <div id="alpha"></div>
-      <div id="beta"></div>
-      <div id="gamma"></div>
+      <table>
+        <tr>
+          <td>alpha</td>
+          <td id="alpha"></td>
+        </tr>
+        <tr>
+          <td>beta</td>
+          <td id="beta"></td>
+        </tr>
+        <tr>
+          <td>gamma</td>
+          <td id="gamma"></td>
+        </tr>
+        <tr>
+          <td>acceleration-x</td>
+          <td id="acceleration-x"></td>
+        </tr>
+        <tr>
+          <td>acceleration-y</td>
+          <td id="acceleration-y"></td>
+        </tr>
+        <tr>
+          <td>acceleration-z</td>
+          <td id="acceleration-z"></td>
+        </tr>
+        <tr>
+          <td>accelerationIncludingGravity-x</td>
+          <td id="accelerationIncludingGravity-x"></td>
+        </tr>
+        <tr>
+          <td>accelerationIncludingGravity-y</td>
+          <td id="accelerationIncludingGravity-y"></td>
+        </tr>
+        <tr>
+          <td>accelerationIncludingGravity-z</td>
+          <td id="accelerationIncludingGravity-z"></td>
+        </tr>
+        <tr>
+          <td>rotationRate-alpha</td>
+          <td id="rotationRate-alpha"></td>
+        </tr>
+        <tr>
+          <td>rotationRate-beta</td>
+          <td id="rotationRate-beta"></td>
+        </tr>
+        <tr>
+          <td>rotationRate-gamma</td>
+          <td id="rotationRate-gamma"></td>
+        </tr>
+      </table>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js" integrity="sha256-gec3OIQVcpO401S96RlOij8H3wSB9vw7LzyaogKCT9Q=" crossorigin="anonymous"></script>

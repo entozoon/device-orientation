@@ -3,9 +3,11 @@ class Orientator {
     if (!window.DeviceOrientationEvent) {
       return false;
     }
+
     window.addEventListener(
       'deviceorientation',
       event => {
+        console.log(event);
         if (event.absolute) {
           alert('This device uses absolute orientation..');
         }
@@ -14,12 +16,9 @@ class Orientator {
         // event.beta  X - front back lift
         // event.gamma Y - left right lift
         // See: https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Orientation_and_motion_data_explained
-        document.getElementById('alpha').innerHTML =
-          'Alpha: ' + Math.round(event.alpha * 10) / 10 + ' °';
-        document.getElementById('beta').innerHTML =
-          'Beta: ' + Math.round(event.beta * 10) / 10 + ' °';
-        document.getElementById('gamma').innerHTML =
-          'Gamma: ' + Math.round(event.gamma * 10) / 10 + ' °';
+        document.getElementById('alpha').innerHTML = Math.round(event.alpha * 10) / 10 + ' °';
+        document.getElementById('beta').innerHTML = Math.round(event.beta * 10) / 10 + ' °';
+        document.getElementById('gamma').innerHTML = Math.round(event.gamma * 10) / 10 + ' °';
 
         box.setRotation({
           x: -event.beta / 360 * Math.PI * 2,
@@ -30,6 +29,34 @@ class Orientator {
       },
       false
     );
+
+    window.addEventListener('devicemotion', event => {
+      [
+        {
+          name: 'acceleration',
+          event: event.acceleration,
+          unit: ' '
+        },
+        {
+          name: 'accelerationIncludingGravity',
+          event: event.accelerationIncludingGravity,
+          unit: ' '
+        },
+        {
+          name: 'rotationRate',
+          event: event.rotationRate,
+          unit: ' °/s'
+        }
+      ].forEach(motion => {
+        // e.g. x, y, z, alpha, beta, gamma
+        for (let direction in motion.event) {
+          if (document.getElementById(motion.name + '-' + direction)) {
+            document.getElementById(motion.name + '-' + direction).innerHTML =
+              Math.round(motion.event[direction] * 10) / 10 + motion.unit;
+          }
+        }
+      });
+    });
   }
 }
 
