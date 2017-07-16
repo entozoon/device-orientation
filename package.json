@@ -1,0 +1,28 @@
+{
+  "name": "device-orientation",
+  "version": "1.0.0",
+  "description": ":tipping_hand_woman: Playing with device tilt/orientation",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm-run-all --parallel browser",
+    "browser": "browser-sync start --server --open local --files \"**/*.html, build/**\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/entozoon/device-orientation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/entozoon/device-orientation/issues"
+  },
+  "homepage": "https://github.com/entozoon/device-orientation#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.12",
+    "npm-run-all": "^4.0.2",
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^4.2.0"
+  }
+}
